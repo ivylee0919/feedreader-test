@@ -72,9 +72,7 @@ $(function() {
     describe('Initial Entries', function() {
         var container;
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         /* TODO:
@@ -84,10 +82,9 @@ $(function() {
          * 记住 loadFeed() 函数是异步的所以这个而是应该使用 Jasmine 的 beforeEach
          * 和异步的 done() 函数。
          */
-        it('loadFeed works', function(done) {
+        it('loadFeed works', function() {
             container = $('.feed');
             expect(container.children('.entry-link').length).not.toBe(0);
-            done();
         });
     });
 
@@ -112,9 +109,8 @@ $(function() {
          * 写一个测试保证当用 loadFeed 函数加载一个新源的时候内容会真的改变。
          * 记住，loadFeed() 函数是异步的。
          */
-        it('new feeds are changed', function(done) {
+        it('new feeds are changed', function() {
             expect(defaultUrl).not.toBe(changedUrl);
-            done();
         });
     });
 }());
